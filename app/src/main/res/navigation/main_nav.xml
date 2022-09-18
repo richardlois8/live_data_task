@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/listProductsFragment">
+
+    <fragment
+        android:id="@+id/listProductsFragment"
+        android:name="com.rich.livedatatask.fragment.ListProductsFragment"
+        android:label="ListProductsFragment" >
+        <action
+            android:id="@+id/action_listProductsFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.rich.livedatatask.fragment.DetailProductFragment"
+        android:label="DetailProductFragment" >
+        <argument
+            android:name="data"
+            app:argType="com.rich.livedatatask.model.Product" />
+    </fragment>
+</navigation>
