@@ -14,52 +14,96 @@
         android:layout_height="match_parent"
         tools:context=".fragment.DetailProductFragment">
 
-        <ImageView
-            android:id="@+id/imageDetailProduct"
-            app:imageResource="@{productDetail.imageProduct}"
-            android:layout_width="match_parent"
-            android:layout_height="300dp" />
-        <TextView
-            android:id="@+id/hargaDetailProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{`Rp. ` + Integer.toString(productDetail.price)}"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_below="@id/imageDetailProduct"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="12dp" />
-        <TextView
-            android:id="@+id/namaDetailProduct"
+        <include
+            android:id="@+id/toolbarDetail"
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{productDetail.productName}"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_below="@id/hargaDetailProduct"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"/>
-        <TextView
-            android:id="@+id/descDetailProduct"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="8dp"/>
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{productDetail.description}"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_below="@id/namaDetailProduct"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"/>
+            android:layout_below="@id/toolbarDetail"
+            android:layout_above="@id/btnBeli">
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageDetailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_alignParentTop="true"
+                    app:imageResource="@{productDetail.imageProduct}" />
+                <ImageView
+                    android:src="@drawable/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/imageDetailProduct" />
+                <TextView
+                    android:id="@+id/hargaDetailProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Rp. ` + Integer.toString(productDetail.price)}"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_below="@id/imageDetailProduct"/>
+                <TextView
+                    android:id="@+id/stokProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageDetailProduct"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="@{`Stok : ` + Integer.toString(productDetail.stock)}"
+                    android:textSize="22sp" />
+                <TextView
+                    android:id="@+id/namaDetailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{productDetail.productName}"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_below="@id/hargaDetailProduct"/>
+                <ImageView
+                    android:src="@drawable/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/namaDetailProduct" />
+                <TextView
+                    android:id="@+id/descDetailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{productDetail.description}"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_below="@id/namaDetailProduct"/>
+            </RelativeLayout>
+        </ScrollView>
         <Button
             android:id="@+id/btnBeli"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Beli"
-            android:backgroundTint="#42B549"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#42B549"
+            android:elevation="12dp"
+            android:text="Beli" />
     </RelativeLayout>
 </layout>

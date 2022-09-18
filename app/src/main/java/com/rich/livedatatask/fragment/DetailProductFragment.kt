@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.rich.livedatatask.R
 import com.rich.livedatatask.databinding.FragmentDetailProductBinding
+import com.rich.livedatatask.databinding.ToolbarBinding
 import com.rich.livedatatask.model.Product
 
 class DetailProductFragment : Fragment() {
@@ -29,6 +30,7 @@ class DetailProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val argsData = arguments?.getParcelable<Product>("data")
+        binding.toolbarDetail.toolbarTitle.text = argsData?.productName
         binding.productDetail = argsData
         binding.btnBeli.setOnClickListener {
             val intentWa = Intent().apply {
